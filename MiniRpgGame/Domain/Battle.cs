@@ -50,6 +50,6 @@ namespace MiniRpgGame.Domain
             player.DecreaseHealth(_settings.LossOfHealth);
         }
 
-        private static int CalculatePower(int power, IEnumerable<Weapons> weapons) => power + weapons.Sum(w => w.Value);
+        private static int CalculatePower(int power, IEnumerable<Weapon> weapons) => power + weapons.Sum(w => w.Value);
     }
 }

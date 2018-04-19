@@ -16,7 +16,7 @@ namespace Game.Tests.Domain
             
             var eventBusMock = new Mock<IEventBus>();
             
-            var weapons = new Weapons(3);
+            var weapons = new Weapon(3);
             var warehouseMock = new Mock<IStockroom>();
             warehouseMock.Setup(w => w.TakeWeapons()).Returns(() => (3, weapons));
 
@@ -38,7 +38,7 @@ namespace Game.Tests.Domain
             var eventBusMock = new Mock<IEventBus>();
             
             var warehouseMock = new Mock<IStockroom>();
-            warehouseMock.Setup(w => w.TakeWeapons()).Returns(() => (3,  new Weapons(3)));
+            warehouseMock.Setup(w => w.TakeWeapons()).Returns(() => (3,  new Weapon(3)));
 
             var seller = new Seller(warehouseMock.Object, eventBusMock.Object);
             var player = new Player(100, 100, 1, 1, Mock.Of<EventBus>());

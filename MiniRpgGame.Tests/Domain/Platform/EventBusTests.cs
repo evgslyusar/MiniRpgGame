@@ -15,7 +15,7 @@ namespace Game.Tests.Domain.Platform
         }
 
         [Fact]
-        public void Should_be_able_to_get_subscribed_to_events()
+        public void ShouldBeAbleToGetSubscribedToEvents()
         {
             Event1 capturedEvent = null;
 
@@ -33,7 +33,7 @@ namespace Game.Tests.Domain.Platform
         }
 
         [Fact]
-        public void Should_not_get_events_not_subscribed_to()
+        public void ShouldNotGetEventsNotSubscribedTo()
         {
             Event1 capturedEvent = null;
 
@@ -50,7 +50,7 @@ namespace Game.Tests.Domain.Platform
         }
 
         [Fact]
-        public void Should_be_able_to_cancel_an_event()
+        public void ShouldBeAbleToCancelAnCvent()
         {
             var stringsPublished = new List<string>();
 
@@ -66,7 +66,7 @@ namespace Game.Tests.Domain.Platform
         }
 
         [Fact]
-        public void Should_handle_resubscription_from_handler()
+        public void ShouldHandleResubscriptionFromHandler()
         {
             Event1 eventFromSubscription = null;
 
@@ -87,7 +87,7 @@ namespace Game.Tests.Domain.Platform
         }
 
         [Fact]
-        public void Should_handle_cancelation_from_handler()
+        public void ShouldHandleCancelationFromHandler()
         {
             Event1 eventFromSubscription = null;
 

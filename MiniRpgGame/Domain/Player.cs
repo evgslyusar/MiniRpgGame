@@ -8,7 +8,7 @@ namespace MiniRpgGame.Domain
 {
     public sealed class Player
     {
-        private readonly List<Weapons> _weapons = new List<Weapons>();
+        private readonly List<Weapon> _weapons = new List<Weapon>();
 
         private readonly List<Armor> _armor = new List<Armor>();
 
@@ -19,7 +19,7 @@ namespace MiniRpgGame.Domain
 
         private const int MinCoins = 0;
 
-        public IEnumerable<Weapons> Weapons => _weapons;
+        public IEnumerable<Weapon> Weapons => _weapons;
 
         public IEnumerable<Armor> Armor => _armor;
 
@@ -61,7 +61,7 @@ namespace MiniRpgGame.Domain
             Coins -= count;
         }
 
-        public void WearWeapons(Weapons weapoin)
+        public void WearWeapons(Weapon weapoin)
         {
             if (weapoin == null) throw new ArgumentNullException(nameof(weapoin));
             ThrowExceptionIfPlayerIsDead();

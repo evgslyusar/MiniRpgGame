@@ -14,14 +14,14 @@ namespace MiniRpgGame.Domain
             _setting = setting ?? throw new ArgumentNullException(nameof(setting));
         }
 
-        public (int Cost, Weapons Weapons) TakeWeapons() => (
+        public (int Cost, Weapon Weapons) TakeWeapons() => (
             _setting.CostOfWeapons,
-            new Weapons(GetValue(_setting.MinValueOfWeapons, _setting.MaxValueOfWeapons)));
+            new Weapon(GetRandomValue(_setting.MinValueOfWeapons, _setting.MaxValueOfWeapons)));
 
         public (int Cost, Armor Armor) TakeArmor() => (
-            GetValue(_setting.MinCostOfArmor, _setting.MaxCostOfArmor),
-            new Armor(GetValue(_setting.MinValueOfArmor, _setting.MaxValueOfArmor)));
+            GetRandomValue(_setting.MinCostOfArmor, _setting.MaxCostOfArmor),
+            new Armor(GetRandomValue(_setting.MinValueOfArmor, _setting.MaxValueOfArmor)));
 
-        private int GetValue(int start, int end) => _random.Next(start, end + 1);
+        private int GetRandomValue(int start, int end) => _random.Next(start, end + 1);
     }
 }

@@ -2,7 +2,7 @@
 {
     public interface IStockroom
     {
-        (int Cost, Weapons Weapons) TakeWeapons();
+        (int Cost, Weapon Weapons) TakeWeapons();
         (int Cost, Armor Armor) TakeArmor();
     }
 }

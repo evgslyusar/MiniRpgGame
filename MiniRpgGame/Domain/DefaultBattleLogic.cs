@@ -8,6 +8,6 @@ namespace MiniRpgGame.Domain
         
         public bool IsWon(int power) => _random.NextDouble() <= CalculateProbabilityOfVictory(power);
         
-        private double CalculateProbabilityOfVictory(int power) => Math.Min(0.4 + power * 0.05, 0.7);
+        private static double CalculateProbabilityOfVictory(int power) => Math.Min(0.4 + power * 0.05, 0.7);
     }
 }
