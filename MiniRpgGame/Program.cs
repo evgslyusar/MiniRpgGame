@@ -50,6 +50,7 @@ namespace MiniRpgGame
             services.AddScoped<Battle>();
             services.AddScoped<Gameplay>();
             services.AddScoped<IConsoleGameIO, ConsoleGameIO>();
+            services.AddScoped<IBot, DumbBot>();
             services.AddScoped<IGame, ConsoleGame>();
         }
 

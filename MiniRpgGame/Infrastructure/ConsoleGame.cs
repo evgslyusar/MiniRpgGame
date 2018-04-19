@@ -11,15 +11,17 @@ namespace MiniRpgGame.Infrastructure
     {
         private readonly IReadOnlyDictionary<ConsoleKey, Action> _availableActions;
         private readonly Gameplay _gameplay;
+        private readonly IBot _bot;
         private readonly IEventBus _eventBus;
         private readonly IConsoleGameIO _gameIO;
         
         private bool _isStarted;
 
-        public ConsoleGame(Gameplay gameplay, IConsoleGameIO gameIO, IEventBus eventBus)
+        public ConsoleGame(Gameplay gameplay, IBot bot, IConsoleGameIO gameIO, IEventBus eventBus)
         {
             _eventBus = eventBus ?? throw new ArgumentNullException(nameof(eventBus));
             _gameplay = gameplay ?? throw new ArgumentNullException(nameof(gameplay));
+            _bot = bot ?? throw new ArgumentNullException(nameof(bot));
             _gameIO = gameIO ?? throw new ArgumentNullException(nameof(gameIO));
 
             _availableActions = new Dictionary<ConsoleKey, Action>
@@ -27,7 +29,8 @@ namespace MiniRpgGame.Infrastructure
                 {ConsoleKey.W, () => _gameplay.Handle(new FightMonsterCommand()) },
                 {ConsoleKey.A, () => _gameplay.Handle(new BuyWeaponsCommand()) },
                 {ConsoleKey.D, () => _gameplay.Handle(new BuyArmorCommand()) }, 
-                {ConsoleKey.S, () => _gameplay.Handle(new HealCommand()) }
+                {ConsoleKey.S, () => _gameplay.Handle(new HealCommand()) },
+                {ConsoleKey.E, () => _bot.MakeMove(_gameplay) },
             };
 
             WireUpEvents();
